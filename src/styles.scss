@@ -1,0 +1,33 @@
+// --------------------------
+// VARIABLES
+// --------------------------
+$maincolor: rgb(39, 128, 139);
+$contrastcolor: rgb(236, 230, 230);
+
+@mixin gray-text-blue-bg {
+  color: $contrastcolor;
+  background-color: $maincolor;
+}
+
+@mixin blue-text-gray-bg {
+  color: $maincolor;
+  background-color: $contrastcolor;
+}
+
+// --------------------------
+// Header
+// --------------------------
+
+nav {
+  @include gray-text-blue-bg;
+  display: flex;
+  justify-content: flex-start;
+
+  a {
+    @include gray-text-blue-bg;
+    div {
+      margin: 10px;
+      font-size: large;
+    }
+  }
+}
