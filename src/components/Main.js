@@ -27,7 +27,9 @@ function Main(props) {
         getCheeses();
     }
 
-    useEffect(() => getCheeses(), []);
+    useEffect(() => {
+        getCheeses()
+    }, [])
 
     return (
         <main>
