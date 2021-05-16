@@ -30,8 +30,8 @@ function Index(props) {
         return props.cheeses.map((cheese) => (
         <div key={cheese._id} className="cheese">
             <Link to={`/cheeses/${cheese._id}`}><h1>{cheese.name}</h1></Link>
+            <h3>{cheese.countryOfOrigin}</h3>
             <img src={cheese.image} alt={cheese.name} />
-            <h3>{cheese.title}</h3>
         </div>
         ));
     };
@@ -39,7 +39,7 @@ function Index(props) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
-  
+
   return (
       <section>
           <form onSubmit={handleSubmit}>
