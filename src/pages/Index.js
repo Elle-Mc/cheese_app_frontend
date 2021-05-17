@@ -17,6 +17,7 @@ function Index(props) {
     // handle submit function for form
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(newForm)
         props.createCheeses(newForm);
         setNewForm({
             name: "",
@@ -27,18 +28,21 @@ function Index(props) {
 
     // loaded function
     const loaded = () => {
+        console.log(props.cheeses)
         return props.cheeses.map((cheese) => (
-        <div key={cheese._id} className="cheese">
-            <Link to={`/cheeses/${cheese._id}`}><h1>{cheese.name}</h1></Link>
-            <h3>{cheese.countryOfOrigin}</h3>
-            <img src={cheese.image} alt={cheese.name} />
-        </div>
-        ));
-    };
+            <div key={cheese._id} className="cheese">
+                <Link to={`/cheeses/${cheese._id}`}>
+                <h1>{cheese.name}</h1>
+                </Link>
+                <h3>{cheese.countryOfOrigin}</h3>
+                <img src={cheese.image} alt={cheese.name} />
+            </div>
+        ))
+    }
 
-  const loading = () => {
-    return <h1>Loading...</h1>;
-  };
+    const loading = () => {
+        return <h1>Loading...</h1>;
+    };
 
   return (
       <section>
@@ -53,7 +57,7 @@ function Index(props) {
             <input
                 type="text"
                 value={newForm.countryOfOrigin}
-                name="origin"
+                name="countryOfOrigin"
                 placeholder="Country of Origin"
                 onChange={handleChange}
             />
