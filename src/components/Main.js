@@ -7,7 +7,7 @@ function Main(props) {
 
     const [cheeses, setCheeses] = useState(null);
 
-    const URL = "http://localhost:4000/cheeses/"
+    const URL = "https://emc-cheese-app.herokuapp.com/cheeses/"
 
     const getCheeses = async () => {
         const response = await fetch(URL);
