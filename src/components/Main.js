@@ -16,7 +16,6 @@ function Main(props) {
     };
 
     const createCheeses = async (cheese) => {
-        console.log(cheese)
         //make post request to create cheese
         await fetch(URL, {
             method: "post",
@@ -42,7 +41,7 @@ function Main(props) {
     }
 
     const deleteCheeses = async id => {
-        // post to delete people
+        // post to delete cheese
         await fetch(URL + id, {
             method: "delete",
         })
@@ -64,6 +63,9 @@ function Main(props) {
             path="/cheeses/:id"
             render={(rp) => (
                 <Show
+                cheeses={cheeses}
+                updateCheeses={updateCheeses}
+                deleteCheeses={deleteCheeses}
                 {...rp}
                 />
             )}
