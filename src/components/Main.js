@@ -11,13 +11,11 @@ function Main(props) {
 
     const getCheeses = async () => {
         const response = await fetch(URL);
-        console.log(response)
         const data = await response.json();
-        console.log(data)
         setCheeses(data);
     };
 
-    const createCheeses= async (cheese) => {
+    const createCheeses = async (cheese) => {
         console.log(cheese)
         //make post request to create cheese
         await fetch(URL, {
@@ -29,6 +27,27 @@ function Main(props) {
         });
         //update list of cheese
         getCheeses();
+    }
+
+    const updateCheeses = async (cheese, id) => {
+        await fetch(URL + id, {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(cheese)
+        })
+        //update all cheese list
+        getCheeses()
+    }
+
+    const deleteCheeses = async id => {
+        // post to delete people
+        await fetch(URL + id, {
+            method: "delete",
+        })
+        //update list of cheese
+        getCheeses()
     }
 
     useEffect(() => {
