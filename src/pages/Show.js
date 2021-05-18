@@ -21,7 +21,7 @@ function Show(props) {
 
     const handleSubmit = event => {
         event.preventDefault()
-        props.updateCheeses(editForm)
+        props.updateCheeses(editForm, cheese._id)
         props.history.push("/")
     }
 
